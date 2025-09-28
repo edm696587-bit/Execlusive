@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Exclusive - Checkout</title>
+    <link rel="stylesheet" href="style_g.css" />
+    <link rel="stylesheet" href="style_hed_fot.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css"
+    />
+  </head>
+  <body>
+    <header>
+      <nav class="nav_bar">
+        <div class="title">
+          <p>Exclusive</p>
+        </div>
+
+        <div class="searchbar">
+          <form action="">
+            <input type="search" placeholder="Search for Product" />
+          </form>
+        </div>
+
+        <div class="menu-toggle">
+          <i class="fa-solid fa-bars"></i>
+        </div>
+
+        <div class="links">
+          <ul class="list">
+            <li>
+              <a href="home.html"><i class="fa-solid fa-house"></i> Home</a>
+            </li>
+            <li>
+              <a href="favorite.html"
+                ><i class="fa-regular fa-heart"></i> Favorite</a
+              >
+            </li>
+            <li>
+              <a href="cart.html"
+                ><i class="fa-solid fa-cart-shopping"></i> Cart</a
+              >
+            </li>
+          </ul>
+        </div>
+      </nav>
+    </header>
+
+    <main class="checkout-container">
+      <h2>Check out your order</h2>
+
+      <!-- Order Summary -->
+      <div class="order-summary">
+        <ul id="order-list">
+          <!-- JS will inject products here -->
+        </ul>
+
+        <div class="summary-details">
+          <p>Subtotal: <span id="subtotal">$0</span></p>
+          <p>Shipping: <span>Free</span></p>
+          <p class="total">Total: <span id="total">$0</span></p>
+        </div>
+
+        <!-- Payment Options -->
+        <div class="payment">
+          <label
+            ><input type="radio" name="payment" value="cod" checked /> Cash on
+            delivery</label
+          >
+        </div>
+
+        <!-- Coupon -->
+        <div class="coupon">
+          <input type="text" id="coupon-code" placeholder="Coupon Code" />
+          <button id="apply-coupon">Apply Coupon</button>
+        </div>
+
+        <!-- Place Order -->
+        <button class="place-order" id="place-order">Place Order</button>
+      </div>
+    </main>
+
+    <footer>
+      <div class="col1" id="demo">
+        <h3><b>About Exclusive</b></h3>
+        <p>
+          welcome to <strong>My Store</strong> – your one-stop destination for
+          quality products at affordable prices. We are passionate about
+          delivering the best shopping experience, whether you’re looking for
+          electronics, fashion, or home essentials. Our mission is to combine
+          convenience, trust, and innovation to make online shopping simple and
+          enjoyable.
+        </p>
+      </div>
+      <div class="col2">
+        <h3>Support</h3>
+        <p>exclusive@gmail.com</p>
+        <p>01094545216</p>
+      </div>
+
+      <div class="col3">
+        <h3>Quick links</h3>
+        <a href="cart.html">Cart</a>
+        <a href="#demo">Privacy Policy</a>
+        <a href="#demo">Terms Of Use</a>
+        <a href="#demo">FAQ</a>
+      </div>
+    </footer>
+
+    <script src="checkout.js"></script>
+  </body>
+  <script>
+    function loadCheckout() {
+      const cart = JSON.parse(localStorage.getItem("cart") || "[]");
+      const orderList = document.getElementById("order-list");
+      const subtotalEl = document.getElementById("subtotal");
+      const totalEl = document.getElementById("total");
+
+      orderList.innerHTML = "";
+      let subtotal = 0;
+
+      cart.forEach((item) => {
+        const li = document.createElement("li");
+        const price = Number(item.price) * (item.quantity || 1);
+        li.innerHTML = `
+      <span>${item.title.slice(0, 30)}</span>
+      <span>$${price.toFixed(2)}</span>
+    `;
+        orderList.appendChild(li);
+        subtotal += price;
+      });
+
+      subtotalEl.textContent = `$${subtotal.toFixed(2)}`;
+      totalEl.textContent = `$${subtotal.toFixed(2)}`;
+    }
+
+    document.addEventListener("DOMContentLoaded", loadCheckout);
+
+    // Place order
+    document.getElementById("place-order").addEventListener("click", () => {
+      alert("Order placed successfully!");
+      localStorage.removeItem("cart");
+
+      loadCheckout();
+    });
+
+    // -----------------------valid coupons------------------------
+    const valid_coupons = {
+      AAAA: 100,
+      BBBB: 200,
+      CCCC: 50,
+      DDDD: 20,
+    };
+
+    let couponUsed = false;
+    let appliedDiscount = 0;
+
+    const couponInput = document.getElementById("coupon-code");
+    const applyBtn = document.getElementById("apply-coupon");
+    const totalEl = document.getElementById("total");
+
+    applyBtn.addEventListener("click", () => {
+      if (couponUsed) {
+        alert("**** متشغلهاش !!!!");
+        return;
+      }
+
+      const coupon = couponInput.value.toUpperCase();
+      let totalEl = document.getElementById("total");
+
+      if (valid_coupons[coupon] && totalEl != $0) {
+        //   ---------disappear untill use coupon ----------
+        const couponResult = document.createElement("p");
+        couponResult.id = "coupon-result";
+        couponResult.classList.add("coupon-result");
+        document.querySelector(".coupon").appendChild(couponResult);
+
+        appliedDiscount = valid_coupons[coupon];
+        couponUsed = true;
+
+        //  ----------------------total after coupon---------------------
+
+        let currentTotal =
+          parseFloat(totalEl.textContent.replace("$", "")) || 0;
+        let newTotal = Math.max(0, currentTotal - appliedDiscount);
+
+        totalEl.textContent = `$${newTotal.toFixed(2)}`;
+        couponInput.value = "";
+
+        couponResult.textContent = `Cost after coupon: $${newTotal.toFixed(
+          2
+        )} (Discount applied: $${appliedDiscount})`;
+
+        alert(
+          ` Congratulations! You got $${appliedDiscount} discount with code "${coupon}"`
+        );
+      } else if (totalEl === $0) {
+        alert("** YOU HAVE NOTHING IN YOUR CART YET**");
+      } else {
+        alert("*** Invalid coupon code***");
+      }
+    });
+  </script>
+</html>

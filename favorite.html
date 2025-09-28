@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Exclusive - Favorites</title>
+
+    <!-- Font Awesome -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css"
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+
+    <!-- Your CSS -->
+    <link rel="stylesheet" href="style_h.css" />
+    <link rel="stylesheet" href="style_hed_fot.css" />
+    <link rel="stylesheet" href="style_g.css" />
+  </head>
+  <body>
+    <!-- NAVBAR -->
+    <nav class="nav_bar">
+      <div class="title">
+        <p>Exclusive</p>
+      </div>
+
+      <div class="menu-toggle">
+        <i class="fa-solid fa-bars"></i>
+      </div>
+
+      <div class="links">
+        <ul class="list">
+          <li>
+            <a href="home.html"><i class="fa-solid fa-house"></i> Home</a>
+          </li>
+          <li>
+            <a href="favorite.html" class="active"
+              ><i class="fa-regular fa-heart"></i> Favorite</a
+            >
+          </li>
+          <li>
+            <a href="cart.html"
+              ><i class="fa-solid fa-cart-shopping"></i> Cart</a
+            >
+          </li>
+        </ul>
+      </div>
+    </nav>
+
+    <!-- FAVORITES SECTION -->
+    <div class="main_fav">
+      <h2>My Favorite Products</h2>
+      <div id="favorites_section" class="products_section"></div>
+    </div>
+
+    <!-- FOOTER -->
+
+    <footer>
+      <div class="col1" id="demo">
+        <h3><b>About Exclusive</b></h3>
+        <p>
+          welcome to <strong>My Store</strong> – your one-stop destination for
+          quality products at affordable prices. We are passionate about
+          delivering the best shopping experience, whether you’re looking for
+          electronics, fashion, or home essentials. Our mission is to combine
+          convenience, trust, and innovation to make online shopping simple and
+          enjoyable.
+        </p>
+      </div>
+      <div class="col2">
+        <h3>Support</h3>
+        <p>exclusive@gmail.com</p>
+        <p>01094545216</p>
+      </div>
+
+      <div class="col3">
+        <h3>Quick links</h3>
+        <a href="cart.html">Cart</a>
+        <a href="#demo">Privacy Policy</a>
+        <a href="#demo">Terms Of Use</a>
+        <a href="#demo">FAQ</a>
+      </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="utils.js"></script>
+    <script>
+      document.addEventListener("DOMContentLoaded", () => {
+        const container = document.getElementById("favorites_section");
+        let favorites = JSON.parse(localStorage.getItem("favorites") || "[]");
+        let cart = JSON.parse(localStorage.getItem("cart") || "[]");
+
+        container.innerHTML = "";
+
+        if (favorites.length === 0) {
+          container.innerHTML =
+            "<p style='text-align:center;'>No favorites yet.</p>";
+          return;
+        }
+
+        favorites.forEach((product) => {
+          const card = createProductCard(product, favorites, cart);
+          container.appendChild(card);
+        });
+      });
+    </script>
+  </body>
+</html>

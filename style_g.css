@@ -1,0 +1,122 @@
+:root {
+  --primary-color: rgb(240, 240, 240);
+  --secondary-color: #db4444;
+  --secondary-text: #4d4d4d;
+  --card-color: white;
+}
+/* check out page  */
+.checkout-container {
+  min-height: 100vh;
+  max-width: 600px;
+  margin: 8rem auto;
+  background: #fff;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.checkout-container h2 {
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+.order-summary ul {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 20px 0;
+}
+
+.order-summary ul li {
+  display: flex;
+  justify-content: space-between;
+  border-bottom: 1px solid #ddd;
+  padding: 10px 0;
+}
+
+.summary-details p {
+  display: flex;
+  justify-content: space-between;
+  margin: 5px 0;
+}
+
+.summary-details .total {
+  font-weight: bold;
+  font-size: 18px;
+  margin-top: 10px;
+}
+
+.payment {
+  margin: 20px 0;
+}
+
+.payment label {
+  display: block;
+  margin-bottom: 8px;
+}
+
+.coupon {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+
+.coupon input {
+  flex: 1;
+  padding: 8px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+}
+
+.coupon button {
+  padding: 8px 12px;
+  background: #e63946;
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.coupon-result {
+  /* display: block; */
+  padding: 4px;
+  margin-top: 10px;
+  font-weight: bold;
+  color: var(--secondary-text);
+  border: 0.15rem solid var(--secondary-color);
+  border-radius: 0.3rem;
+  background-color: var(--primary-color);
+}
+
+.place-order {
+  width: 100%;
+  padding: 12px;
+  background: #e63946;
+  color: #fff;
+  font-size: 16px;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+/* ----------------------fave page------------------------------ */
+.main_fav {
+  width: 90%;
+  margin: 30px auto 70px;
+  text-align: center;
+  min-height: 100vh;
+}
+.main_fav h2 {
+  text-align: center;
+  margin-top: 8rem;
+}
+
+/* ------------------cart css---------------------- */
+.cart_title {
+  color: var(--secondary-text);
+  width: 14rem;
+  background-color: var(--primary-color);
+  display: flex;
+  border-radius: 0.6rem;
+  justify-content: center;
+  margin-bottom: 0.8rem;
+}

@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Exclusive</title>
+
+    <!-- Font Awesome (icons) -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css"
+      integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+
+    <!-- Your CSS -->
+    <link rel="stylesheet" href="style_h.css" />
+    <link rel="stylesheet" href="style_hed_fot.css" />
+  </head>
+  <body>
+    <!-- NAVBAR -->
+    <header>
+      <nav class="nav_bar">
+        <div class="title">
+          <p>Exclusive</p>
+        </div>
+
+        <div class="searchbar">
+          <form action="">
+            <input type="search" placeholder="Search for Product" />
+          </form>
+        </div>
+
+        <div class="menu-toggle">
+          <i class="fa-solid fa-bars"></i>
+        </div>
+
+        <div class="links">
+          <ul class="list">
+            <li>
+              <a href="#123"><i class="fa-solid fa-house"></i> Home</a>
+            </li>
+            <li>
+              <a href="favorite.html"
+                ><i class="fa-regular fa-heart"></i> Favorite</a
+              >
+            </li>
+            <li>
+              <a href="cart.html"
+                ><i class="fa-solid fa-cart-shopping"></i> Cart</a
+              >
+            </li>
+          </ul>
+        </div>
+      </nav>
+    </header>
+
+    <!-- MAIN LANDING PAGE -->
+    <div class="main-content">
+      <p class="flash-sales" id="123">Flash Sales</p>
+      <!-- SLIDER -->
+      <div class="slider">
+        <div class="slides">
+          <!-- keep the img id as you used before -->
+          <img id="slides" src="assets/Frame_560.png" alt="Product slide" />
+        </div>
+      </div>
+
+      <!-- BUTTON -->
+      <button class="shop-btn" id="shopping">Start Shopping</button>
+    </div>
+
+    <hr style="width: 90%" />
+
+    <!-- CATEGORIES -->
+    <div class="main_products">
+      <div class="cat">
+        <img src="assets/application.png" alt="" />
+        <h3><b>Categories</b></h3>
+      </div>
+
+      <h2>Browse By Category</h2>
+
+      <div class="category_img">
+        <div class="cat_card c1">
+          <a href="#products"><img src="assets/electronics.png" alt="" /></a>
+          <p>electronics</p>
+        </div>
+        <div class="cat_card c2">
+          <a href="#products"><img src="assets/jewellery.png" alt="" /></a>
+          <p>jewelery</p>
+        </div>
+        <div class="cat_card c3">
+          <a href="#products"><img src="assets/brand.png" alt="" /></a>
+          <p>men's clothing</p>
+        </div>
+        <div class="cat_card c4">
+          <a href="#products"><img src="assets/skincare.png" alt="" /></a>
+          <p>women's clothing</p>
+        </div>
+      </div>
+
+      <hr id="products" style="width: 90%" />
+      <div class="our_products">
+        <h3><b>Our products</b></h3>
+      </div>
+      <h2><strong>Explore our products</strong></h2>
+      <div class="products_section" id="products_section"></div>
+    </div>
+
+    <!-- PRODUCTS SECTION (JS will inject cards here) -->
+
+    <div class="veiw_all">
+      <button id="view-all">Veiw All products</button>
+    </div>
+    <hr />
+
+    <div class="Advantages">
+      <img src="assets/Frame701.png" alt="" />
+      <img src="assets/Frame702.png" alt="" />
+      <img src="assets/Frame703.png" alt="" />
+    </div>
+
+    <footer>
+      <div class="col1" id="demo">
+        <h3><b>About Exclusive</b></h3>
+        <p>
+          welcome to <strong>My Store</strong> – your one-stop destination for
+          quality products at affordable prices. We are passionate about
+          delivering the best shopping experience, whether you’re looking for
+          electronics, fashion, or home essentials. Our mission is to combine
+          convenience, trust, and innovation to make online shopping simple and
+          enjoyable.
+        </p>
+      </div>
+      <div class="col2">
+        <h3>Support</h3>
+        <p>exclusive@gmail.com</p>
+        <p>01094545216</p>
+      </div>
+
+      <div class="col3">
+        <h3>Quick links</h3>
+        <a href="cart.html">Cart</a>
+        <a href="#demo">Privacy Policy</a>
+        <a href="#demo">Terms Of Use</a>
+        <a href="#demo">FAQ</a>
+      </div>
+    </footer>
+    <!-- Scripts -->
+    <script src="utils.js"></script>
+    <script src="script.js"></script>
+  </body>
+</html>

@@ -1,0 +1,136 @@
+:root {
+  --primary-color: rgb(240, 240, 240);
+  --secondary-color: #db4444;
+  --secondary-text: #4d4d4d;
+  --card-color: white;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: Arial, sans-serif;
+  background-color: var(--primary-color);
+  color: var(--secondary-text);
+}
+/* header style */
+.nav_bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: white;
+  height: 85px;
+  padding: 0 30px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+  position: fixed;
+  top: 0;
+  width: 100%;
+  /* margin-bottom: 80px; */
+
+  z-index: 1000;
+  /* position: relative; for absolute mobile hamburger */
+}
+
+.title p {
+  font-size: 1.2rem;
+  font-weight: bold;
+  color: var(--secondary-color);
+}
+
+.searchbar input {
+  width: 300px;
+  height: 30px;
+  border-radius: 8px;
+  border: 2px solid var(--secondary-color);
+  padding: 0 10px;
+  background-color: var(--primary-color);
+  color: var(--secondary-text);
+}
+.menu-toggle {
+  display: none;
+  font-size: 1.5rem;
+  cursor: pointer;
+  color: var(--secondary-color);
+}
+
+.links ul {
+  list-style: none;
+  display: flex;
+  gap: 15px;
+  margin: 0;
+  padding: 0;
+}
+.links a {
+  text-decoration: none;
+  color: var(--secondary-text);
+  font-size: 0.9rem;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.links {
+  transition: max-height 0.3s ease-in-out;
+}
+.links i {
+  color: var(--secondary-color);
+  font-size: 1rem;
+}
+.links.show {
+  display: block;
+}
+
+/* -----------------------any button ------------------------ */
+.shop-btn {
+  margin-top: 30px;
+  background-color: var(--secondary-color);
+  color: white;
+  border: none;
+  padding: 12px 24px;
+  border-radius: 8px;
+  font-size: 1rem;
+  font-weight: bold;
+  cursor: pointer;
+  box-shadow: -5px 5px 10px rgba(0, 0, 0, 0.2);
+  transition: transform 0.3s ease;
+}
+.shop-btn:hover {
+  transform: scale(1.05);
+}
+
+/* -----------------footer ----------------------- */
+
+footer {
+  width: 100%;
+  background-color: black;
+  opacity: 0.95;
+  height: auto;
+  color: white;
+  display: flex;
+  justify-content: space-around;
+  padding-bottom: 20px;
+  align-items: center;
+}
+
+.col1 {
+  width: 350px;
+  font-size: large;
+}
+.col3 {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.col3 a {
+  text-decoration: none;
+  color: #fafafa;
+  margin: 8px 0px;
+  transition: transform 0.3s ease;
+}
+.col3 a:hover {
+  transform: translateY(-3px);
+}

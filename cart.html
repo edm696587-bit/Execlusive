@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Exclusive - Cart</title>
+
+    <!-- Font Awesome (icons) -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css"
+      integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+
+    <!-- Your CSS -->
+    <link rel="stylesheet" href="style_h.css" />
+    <link rel="stylesheet" href="style_hed_fot.css" />
+    <link rel="stylesheet" href="style_g.css" />
+  </head>
+  <body>
+    <!-- NAVBAR -->
+    <nav class="nav_bar">
+      <div class="title">
+        <p>Exclusive</p>
+      </div>
+
+      <div class="menu-toggle">
+        <i class="fa-solid fa-bars"></i>
+      </div>
+
+      <div class="links">
+        <ul class="list">
+          <li>
+            <a href="home.html"><i class="fa-solid fa-house"></i> Home</a>
+          </li>
+          <li>
+            <a href="favorite.html"
+              ><i class="fa-regular fa-heart"></i> Favorite</a
+            >
+          </li>
+        </ul>
+      </div>
+    </nav>
+
+    <!-- CART PAGE -->
+    <div class="main_cartp">
+      <div class="cart_title">
+        <h2>your Cart <i class="fa-solid fa-cart-shopping"></i></h2>
+      </div>
+
+      <table class="table">
+        <thead>
+          <tr class="table_header_c">
+            <th>Product</th>
+            <th>Price</th>
+            <th>Quantity</th>
+            <th>Subtotal</th>
+            <th>Remove</th>
+          </tr>
+        </thead>
+        <tbody id="cart-body">
+          <!-- rows injected by JS -->
+        </tbody>
+      </table>
+
+      <div class="total_cost">
+        <p>
+          <b>Total cost = <span id="cart-total">0$</span></b>
+        </p>
+        <a href="checkout.html" class="shop-btn" style="text-decoration: none"
+          >Check out</a
+        >
+      </div>
+    </div>
+
+    <!-- FOOTER -->
+
+    <footer>
+      <div class="col1" id="demo">
+        <h3><b>About Exclusive</b></h3>
+        <p>
+          welcome to <strong>My Store</strong> – your one-stop destination for
+          quality products at affordable prices. We are passionate about
+          delivering the best shopping experience, whether you’re looking for
+          electronics, fashion, or home essentials. Our mission is to combine
+          convenience, trust, and innovation to make online shopping simple and
+          enjoyable.
+        </p>
+      </div>
+      <div class="col2">
+        <h3>Support</h3>
+        <p>exclusive@gmail.com</p>
+        <p>01094545216</p>
+      </div>
+
+      <div class="col3">
+        <h3>Quick links</h3>
+        <a href="cart.html">Cart</a>
+        <a href="#demo">Privacy Policy</a>
+        <a href="#demo">Terms Of Use</a>
+        <a href="#demo">FAQ</a>
+      </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="script.js"></script>
+    <script>
+      // extend loadCart to support remove button
+      function loadCart() {
+        const cart = JSON.parse(localStorage.getItem("cart") || "[]");
+        const tbody = document.getElementById("cart-body");
+        const totalEl = document.getElementById("cart-total");
+        if (!tbody || !totalEl) return;
+
+        tbody.innerHTML = "";
+        let totalCost = 0;
+
+        cart.forEach((item, index) => {
+          const price = Number(item.price) || 0;
+          const quantity = item.quantity || 1;
+          const subTotal = price * quantity;
+          totalCost += subTotal;
+
+          const tr = document.createElement("tr");
+          tr.innerHTML = `
+          <td>
+            <div class="cart-product">
+              <img src="${item.image}" alt="${item.title}">
+              <span>${item.title.slice(0, 40)}</span>
+            </div>
+          </td>
+          <td>$${price.toFixed(2)}</td>
+          <td><input type="number" min="1" value="${quantity}"></td>
+          <td>$${subTotal.toFixed(2)}</td>
+          <td><button class="remove-btn"><i class="fa-solid fa-xmark"></i></button></td>
+        `;
+
+          // quantity change
+          const qtyInput = tr.querySelector("input");
+          qtyInput.addEventListener("input", (e) => {
+            const newQty = parseInt(e.target.value) || 1;
+            cart[index].quantity = newQty;
+            localStorage.setItem("cart", JSON.stringify(cart));
+            loadCart();
+          });
+
+          // remove item
+          const removeBtn = tr.querySelector(".remove-btn");
+          removeBtn.addEventListener("click", () => {
+            cart.splice(index, 1);
+            localStorage.setItem("cart", JSON.stringify(cart));
+            loadCart();
+          });
+
+          tbody.appendChild(tr);
+        });
+
+        totalEl.textContent = `$${totalCost.toFixed(2)}`;
+      }
+
+      document.addEventListener("DOMContentLoaded", loadCart);
+    </script>
+  </body>
+</html>
