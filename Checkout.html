@@ -77,6 +77,20 @@
           <button id="apply-coupon">Apply Coupon</button>
         </div>
 
+        <div class="coupon">
+          <input
+            type="text"
+            id="address"
+            placeholder="Enter your address"
+            required
+          />
+          <input
+            type="text"
+            id="phone"
+            placeholder="Enter your phone number"
+            required
+          />
+        </div>
         <!-- Place Order -->
         <button class="place-order" id="place-order">Place Order</button>
       </div>
@@ -111,6 +125,7 @@
 
     <script src="checkout.js"></script>
   </body>
+
   <script>
     function loadCheckout() {
       const cart = JSON.parse(localStorage.getItem("cart") || "[]");
@@ -124,10 +139,12 @@
       cart.forEach((item) => {
         const li = document.createElement("li");
         const price = Number(item.price) * (item.quantity || 1);
+        const quantity = Number(item.quantity || 1);
         li.innerHTML = `
-      <span>${item.title.slice(0, 30)}</span>
-      <span>$${price.toFixed(2)}</span>
-    `;
+        <span>${item.title.slice(0, 20)}</span>
+        <span>x${quantity}</span>
+        <span>$${price.toFixed(2)}</span>
+      `;
         orderList.appendChild(li);
         subtotal += price;
       });
@@ -140,8 +157,25 @@
 
     // Place order
     document.getElementById("place-order").addEventListener("click", () => {
-      alert("Order placed successfully!");
+      const address = document.getElementById("address").value.trim();
+      const phone = document.getElementById("phone").value.trim();
+
+      if (!address || !phone) {
+        alert(
+          "****=> Please enter your address and phone number before placing the order."
+        );
+        return;
+      } else if (!quantity) {
+        alert("you haven't any item to order");
+      }
+
+      alert(
+        ` Order placed successfully!\n Address: ${address}\n Phone: ${phone}`
+      );
+
       localStorage.removeItem("cart");
+      address.textContent.replace(address, "");
+      phone.textContent.replace(phone, "");
 
       loadCheckout();
     });
@@ -163,27 +197,26 @@
 
     applyBtn.addEventListener("click", () => {
       if (couponUsed) {
-        alert("**** متشغلهاش !!!!");
+        alert("***متشغلهاش ***!");
         return;
       }
 
       const coupon = couponInput.value.toUpperCase();
-      let totalEl = document.getElementById("total");
+      let currentTotal = parseFloat(totalEl.textContent.replace("$", "")) || 0;
 
-      if (valid_coupons[coupon] && totalEl != $0) {
-        //   ---------disappear untill use coupon ----------
-        const couponResult = document.createElement("p");
-        couponResult.id = "coupon-result";
-        couponResult.classList.add("coupon-result");
-        document.querySelector(".coupon").appendChild(couponResult);
+      if (valid_coupons[coupon] && currentTotal > 0) {
+        // Show coupon result once
+        let couponResult = document.getElementById("coupon-result");
+        if (!couponResult) {
+          couponResult = document.createElement("p");
+          couponResult.id = "coupon-result";
+          couponResult.classList.add("coupon-result");
+          document.querySelector(".coupon").appendChild(couponResult);
+        }
 
         appliedDiscount = valid_coupons[coupon];
         couponUsed = true;
 
-        //  ----------------------total after coupon---------------------
-
-        let currentTotal =
-          parseFloat(totalEl.textContent.replace("$", "")) || 0;
         let newTotal = Math.max(0, currentTotal - appliedDiscount);
 
         totalEl.textContent = `$${newTotal.toFixed(2)}`;
@@ -191,15 +224,15 @@
 
         couponResult.textContent = `Cost after coupon: $${newTotal.toFixed(
           2
-        )} (Discount applied: $${appliedDiscount})`;
+        )} (Discount: $${appliedDiscount})`;
 
         alert(
           ` Congratulations! You got $${appliedDiscount} discount with code "${coupon}"`
         );
-      } else if (totalEl === $0) {
-        alert("** YOU HAVE NOTHING IN YOUR CART YET**");
+      } else if (currentTotal === 0) {
+        alert(" Your cart is empty!");
       } else {
-        alert("*** Invalid coupon code***");
+        alert(" Invalid coupon code.");
       }
     });
   </script>

@@ -95,10 +95,10 @@ body {
   justify-content: space-between;
 }
 .cat img {
-  transition: transform 0.3s ease;
+  transition: transform 0.7s ease;
 }
 .cat img:hover {
-  transform: rotate(70deg);
+  transform: rotate(360deg);
 }
 
 .category_img {
