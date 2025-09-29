@@ -45,6 +45,7 @@ body {
   height: 30px;
   border-radius: 8px;
   border: 2px solid var(--secondary-color);
+
   padding: 0 10px;
   background-color: var(--primary-color);
   color: var(--secondary-text);

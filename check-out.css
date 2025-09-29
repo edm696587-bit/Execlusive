@@ -1,10 +1,4 @@
-:root {
-  --primary-color: rgb(240, 240, 240);
-  --secondary-color: #db4444;
-  --secondary-text: #4d4d4d;
-  --card-color: white;
-}
-/* check out page  */
+
 .checkout-container {
   min-height: 100vh;
   max-width: 600px;
@@ -52,6 +46,7 @@
 .payment label {
   display: block;
   margin-bottom: 8px;
+
 }
 
 .coupon {
@@ -75,9 +70,12 @@
   border-radius: 4px;
   cursor: pointer;
 }
+.coupon input:hover{
+      border: 2px solid var(--secondary-color);
+
+}
 
 .coupon-result {
-  /* display: block; */
   padding: 4px;
   margin-top: 10px;
   font-weight: bold;
@@ -86,8 +84,30 @@
   border-radius: 0.3rem;
   background-color: var(--primary-color);
 }
+.client_info{
+  
+  display: flex;
+  flex-direction: column;
+  gap: .8rem;
+  
+  
+}
+.client_info input{
+  border-radius: .5rem;
+  height: 2rem;
+  border: 1px solid #ddd;
+  padding: .8rem;
 
-.place-order {
+}
+.client_info input:hover{
+    border: 2px solid var(--secondary-color);
+
+}
+
+.place-order{
+  margin:1.2rem 0px;
+}
+.place-order button{
   width: 100%;
   padding: 12px;
   background: #e63946;
@@ -98,25 +118,3 @@
   cursor: pointer;
 }
 
-/* ----------------------fave page------------------------------ */
-.main_fav {
-  width: 90%;
-  margin: 30px auto 70px;
-  text-align: center;
-  min-height: 100vh;
-}
-.main_fav h2 {
-  text-align: center;
-  margin-top: 8rem;
-}
-
-/* ------------------cart css---------------------- */
-.cart_title {
-  color: var(--secondary-text);
-  width: 14rem;
-  background-color: var(--primary-color);
-  display: flex;
-  border-radius: 0.6rem;
-  justify-content: center;
-  margin-bottom: 0.8rem;
-}

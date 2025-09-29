@@ -14,9 +14,9 @@
     />
 
     <!-- Your CSS -->
-    <link rel="stylesheet" href="style_h.css" />
+    <link rel="stylesheet" href="home.css" /> <!-- for card style-->>
     <link rel="stylesheet" href="style_hed_fot.css" />
-    <link rel="stylesheet" href="style_g.css" />
+    <link rel="stylesheet" href="favorite.css" />
   </head>
   <body>
     <!-- NAVBAR -->
@@ -84,26 +84,6 @@
     </footer>
 
     <!-- Scripts -->
-    <script src="utils.js"></script>
-    <script>
-      document.addEventListener("DOMContentLoaded", () => {
-        const container = document.getElementById("favorites_section");
-        let favorites = JSON.parse(localStorage.getItem("favorites") || "[]");
-        let cart = JSON.parse(localStorage.getItem("cart") || "[]");
-
-        container.innerHTML = "";
-
-        if (favorites.length === 0) {
-          container.innerHTML =
-            "<p style='text-align:center;'>No favorites yet.</p>";
-          return;
-        }
-
-        favorites.forEach((product) => {
-          const card = createProductCard(product, favorites, cart);
-          container.appendChild(card);
-        });
-      });
-    </script>
+    <script src="favorite.js"></script>
   </body>
 </html>

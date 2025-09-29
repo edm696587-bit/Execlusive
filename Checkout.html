@@ -1,132 +1,149 @@
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Exclusive - Checkout</title>
-    <link rel="stylesheet" href="style_g.css" />
-    <link rel="stylesheet" href="style_hed_fot.css" />
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css"
-    />
-  </head>
-  <body>
-    <header>
-      <nav class="nav_bar">
-        <div class="title">
-          <p>Exclusive</p>
-        </div>
+  <!DOCTYPE html>
+  <html lang="en">
+    <head>
+      <meta charset="UTF-8" />
+      <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <title>Exclusive - Checkout</title>
+      <link rel="stylesheet" href="check-out.css" />
+      <link rel="stylesheet" href="style_hed_fot.css" />
+      <link
+        rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css"
+      />
+      <style>
+        input::-webkit-outer-spin-button,
+  input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+  }
 
-        <div class="searchbar">
-          <form action="">
-            <input type="search" placeholder="Search for Product" />
-          </form>
-        </div>
+      </style>
+    </head>
+    <body>
+      <header>
+        <nav class="nav_bar">
+          <div class="title">
+            <p>Exclusive</p>
+          </div>
 
-        <div class="menu-toggle">
-          <i class="fa-solid fa-bars"></i>
-        </div>
+          <div class="searchbar">
+            <form action="">
+              <input type="search" placeholder="Search for Product" />
+            </form>
+          </div>
 
-        <div class="links">
-          <ul class="list">
-            <li>
-              <a href="home.html"><i class="fa-solid fa-house"></i> Home</a>
-            </li>
-            <li>
-              <a href="favorite.html"
-                ><i class="fa-regular fa-heart"></i> Favorite</a
-              >
-            </li>
-            <li>
-              <a href="cart.html"
-                ><i class="fa-solid fa-cart-shopping"></i> Cart</a
-              >
-            </li>
+          <div class="menu-toggle">
+            <i class="fa-solid fa-bars"></i>
+          </div>
+
+          <div class="links">
+            <ul class="list">
+              <li>
+                <a href="home.html"><i class="fa-solid fa-house"></i> Home</a>
+              </li>
+              <li>
+                <a href="favorite.html"
+                  ><i class="fa-regular fa-heart"></i> Favorite</a
+                >
+              </li>
+              <li>
+                <a href="cart.html"
+                  ><i class="fa-solid fa-cart-shopping"></i> Cart</a
+                >
+              </li>
+            </ul>
+          </div>
+        </nav>
+      </header>
+
+      <main class="checkout-container">
+        <h2>Check out your order</h2>
+
+        <!-- Order Summary -->
+        <div class="order-summary">
+          <ul id="order-list">
+            <!-- JS will inject products here -->
           </ul>
-        </div>
-      </nav>
-    </header>
 
-    <main class="checkout-container">
-      <h2>Check out your order</h2>
+          <div class="summary-details">
+            <p>Subtotal: <span id="subtotal">$0</span></p>
+            <p>Shipping: <span>Free</span></p>
+            <p class="total">Total: <span id="total">$0</span></p>
+          </div>
 
-      <!-- Order Summary -->
-      <div class="order-summary">
-        <ul id="order-list">
-          <!-- JS will inject products here -->
-        </ul>
+          <div class="payment">
+            <label
+              ><input type="radio" name="payment" value="cod" checked /> Cash on
+              delivery</label
+            >
+          </div>
 
-        <div class="summary-details">
-          <p>Subtotal: <span id="subtotal">$0</span></p>
-          <p>Shipping: <span>Free</span></p>
-          <p class="total">Total: <span id="total">$0</span></p>
-        </div>
 
-        <!-- Payment Options -->
-        <div class="payment">
-          <label
-            ><input type="radio" name="payment" value="cod" checked /> Cash on
-            delivery</label
-          >
-        </div>
+          <!-- Coupon -->
+          <div class="coupon">
+            <input type="text" id="coupon-code" placeholder="Coupon Code" />
 
-        <!-- Coupon -->
-        <div class="coupon">
-          <input type="text" id="coupon-code" placeholder="Coupon Code" />
-          <button id="apply-coupon">Apply Coupon</button>
+            <button id="apply-coupon">Apply Coupon</button>
+          </div>
+
+          <div class="coupon">
+            
+          <!-- Place Order -->
         </div>
 
-        <div class="coupon">
-          <input
-            type="text"
-            id="address"
-            placeholder="Enter your address"
-            required
-          />
-          <input
-            type="text"
-            id="phone"
-            placeholder="Enter your phone number"
-            required
-          />
+        <div class="client_info">
+          <input type="text" id="name" placeholder="Enter your full name" required>
+            <input
+              type="text"
+              id="address"
+              placeholder="Enter your address like(city street building_number) "
+              required
+            />
+            <input
+              type="number"
+              id="phone"
+              placeholder="Enter your phone number"
+              required
+            />
+          </div>
         </div>
-        <!-- Place Order -->
-        <button class="place-order" id="place-order">Place Order</button>
-      </div>
-    </main>
 
-    <footer>
-      <div class="col1" id="demo">
-        <h3><b>About Exclusive</b></h3>
-        <p>
-          welcome to <strong>My Store</strong> – your one-stop destination for
-          quality products at affordable prices. We are passionate about
-          delivering the best shopping experience, whether you’re looking for
-          electronics, fashion, or home essentials. Our mission is to combine
-          convenience, trust, and innovation to make online shopping simple and
-          enjoyable.
-        </p>
-      </div>
-      <div class="col2">
-        <h3>Support</h3>
-        <p>exclusive@gmail.com</p>
-        <p>01094545216</p>
-      </div>
+        <div class="place-order">
+      <button id="place-order">Place Order</button>
+  </div>
+      </main>
 
-      <div class="col3">
-        <h3>Quick links</h3>
-        <a href="cart.html">Cart</a>
-        <a href="#demo">Privacy Policy</a>
-        <a href="#demo">Terms Of Use</a>
-        <a href="#demo">FAQ</a>
-      </div>
-    </footer>
+      <footer>
+        <div class="col1" id="demo">
+          <h3><b>About Exclusive</b></h3>
+          <p>
+            welcome to <strong>My Store</strong> – your one-stop destination for
+            quality products at affordable prices. We are passionate about
+            delivering the best shopping experience, whether you’re looking for
+            electronics, fashion, or home essentials. Our mission is to combine
+            convenience, trust, and innovation to make online shopping simple and
+            enjoyable.
+          </p>
+        </div>
+        <div class="col2">
+          <h3>Support</h3>
+          <p>exclusive@gmail.com</p>
+          <p>01094545216</p>
+        </div>
 
-    <script src="checkout.js"></script>
-  </body>
+        <div class="col3">
+          <h3>Quick links</h3>
+          <a href="cart.html">Cart</a>
+          <a href="#demo">Privacy Policy</a>
+          <a href="#demo">Terms Of Use</a>
+          <a href="#demo">FAQ</a>
+        </div>
+      </footer>
 
-  <script>
+      <script src="checkout.js"></script>
+    </body>
+
+    <script>
     function loadCheckout() {
       const cart = JSON.parse(localStorage.getItem("cart") || "[]");
       const orderList = document.getElementById("order-list");
@@ -141,10 +158,10 @@
         const price = Number(item.price) * (item.quantity || 1);
         const quantity = Number(item.quantity || 1);
         li.innerHTML = `
-        <span>${item.title.slice(0, 20)}</span>
-        <span>x${quantity}</span>
-        <span>$${price.toFixed(2)}</span>
-      `;
+          <span>${item.title.slice(0, 20)}</span>
+          <span>x${quantity}</span>
+          <span>$${price.toFixed(2)}</span>
+        `;
         orderList.appendChild(li);
         subtotal += price;
       });
@@ -157,25 +174,52 @@
 
     // Place order
     document.getElementById("place-order").addEventListener("click", () => {
+      const name = document.getElementById("name").value.trim();
       const address = document.getElementById("address").value.trim();
       const phone = document.getElementById("phone").value.trim();
+      const cart = JSON.parse(localStorage.getItem("cart") || "[]");
 
-      if (!address || !phone) {
-        alert(
-          "****=> Please enter your address and phone number before placing the order."
-        );
+      // Validate cart
+      if (cart.length === 0) {
+        alert("❌ Your cart is empty!");
         return;
-      } else if (!quantity) {
-        alert("you haven't any item to order");
       }
 
-      alert(
-        ` Order placed successfully!\n Address: ${address}\n Phone: ${phone}`
-      );
+      // Validate name (must be 2+ words)
+      if (name.split(" ").length < 2) {
+        alert("❌ Please enter your full name (at least 2 words).");
+        return;
+      }
 
+      // Validate address (must be 2+ words)
+      if (address.split(" ").length < 2) {
+        alert("❌ Please enter a valid address (at least 2 words).");
+        return;
+      }
+
+      // Validate phone (must be 11 digits & not all same)
+      if (!/^\d{11}$/.test(phone)) {
+        alert("❌ Phone number must contain exactly 11 digits.");
+        return;
+      }
+      if (/^(\d)\1{10}$/.test(phone)) {
+        alert("❌ Phone number cannot be all the same digit.");
+        return;
+      }
+
+      // ✅ Success
+      alert(`✅ Order placed successfully!
+  Name: ${name}
+  Address: ${address}
+  Phone: ${phone}`);
+
+  // couponResult.classList.remove("coupon-result"); //dfghjkhgfdfghjklhffghjkhfdfgh
+      // Clear cart & inputs
       localStorage.removeItem("cart");
-      address.textContent.replace(address, "");
-      phone.textContent.replace(phone, "");
+      document.getElementById("name").value = "";
+      document.getElementById("address").value = "";
+      document.getElementById("phone").value = "";
+
 
       loadCheckout();
     });
@@ -197,7 +241,7 @@
 
     applyBtn.addEventListener("click", () => {
       if (couponUsed) {
-        alert("***متشغلهاش ***!");
+        alert("*** Coupon already used! ***");
         return;
       }
 
@@ -227,13 +271,14 @@
         )} (Discount: $${appliedDiscount})`;
 
         alert(
-          ` Congratulations! You got $${appliedDiscount} discount with code "${coupon}"`
+          `🎉 Congratulations! You got $${appliedDiscount} discount with code "${coupon}"`
         );
       } else if (currentTotal === 0) {
-        alert(" Your cart is empty!");
+        alert("❌ Your cart is empty!");
       } else {
-        alert(" Invalid coupon code.");
+        alert("❌ Invalid coupon code.");
       }
     });
   </script>
-</html>
+
+  </html>

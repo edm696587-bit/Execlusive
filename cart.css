@@ -1,0 +1,117 @@
+.cart_title {
+  color: var(--secondary-text);
+  width: 14rem;
+  background-color: var(--primary-color);
+  display: flex;
+  border-radius: 0.6rem;
+  justify-content: center;
+  margin-bottom: 0.8rem;
+}
+
+.main_cartp {
+  min-height: 100vh;
+  width: 90%;
+  margin: 8rem auto 3rem;
+  background-color: #fafafa;
+  padding: 20px;
+  border-radius: 8px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-bottom: 20px;
+  background: white;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  border-radius: 5px;
+  overflow: hidden;
+}
+
+.table th,
+.table td {
+  padding: 12px;
+  text-align: start;
+  border-bottom: 1px solid #ddd;
+}
+.table td:first-child {
+  text-align: left;
+  justify-content: flex-start;
+}
+.table th {
+  background: #f4f4f4;
+  color: #333;
+  font-weight: bold;
+}
+
+.table td img {
+  width: 50px;
+  height: 50px;
+  object-fit: contain;
+}
+
+.table td input {
+  width: 60px;
+  /* height: 50px; */
+  padding: 5px;
+  text-align: center;
+}
+
+.total_cost {
+  text-align: center;
+  margin-top: 30px;
+  font-size: 1.3rem;
+  width: 100%;
+}
+
+.total_cost p {
+  margin: 15px 0;
+  padding-bottom: 10px;
+}
+ .total_cost a {
+     text-decoration: none;
+     margin-top: 30px;
+     background-color: var(--secondary-color);
+     color: white;
+     padding: 12px 24px;
+     border-radius: 8px;
+     font-size: 1rem;
+     display: inline-block;
+     font-weight: bold;
+     
+     box-shadow: -5px 5px 10px rgba(0, 0, 0, 0.2);
+     transition: transform 0.3s ease;
+
+}
+.total_cost a:hover {
+  transform: scale(1.05);
+} 
+
+
+
+
+.cart-product {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  justify-content: flex-start;
+}
+
+.cart-product img {
+  width: 50px;
+  height: 50px;
+  object-fit: contain;
+}
+
+.cart-product span {
+  font-size: 0.9rem;
+  color: #333;
+}
+
+.remove-btn {
+  background-color: #ce1a1a;
+}
+
+/* ------------------------------------------------- */
