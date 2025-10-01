@@ -89,3 +89,14 @@ document.addEventListener("DOMContentLoaded", () => {
     container.appendChild(createProductCard(product));
   });
 });
+
+// ================================
+// NAVBAR HAMBURGER TOGGLE
+// ================================
+const menuToggle = document.querySelector(".menu-toggle");
+const navLinks = document.querySelector(".nav_bar .links");
+
+menuToggle.addEventListener("click", () => {
+  navLinks.classList.toggle("show");
+});
+
