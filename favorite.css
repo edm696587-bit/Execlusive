@@ -9,45 +9,8 @@
   margin-top: 8rem;
 }
 
+/* ==> ----------------- responsive ----------------- <== */
 @media (max-width: 768px) {
-  /* Navbar responsive */
-  .nav_bar {
-    display: flex;
-    justify-content: space-between; /* title left, links right */
-    align-items: center;
-    flex-wrap: wrap;
-    padding: 10px 15px;
-  }
-
-  .nav_bar .title {
-    font-size: 1.2rem; /* scale down on mobile */
-    flex: 1;
-  }
-
-  .nav_bar .links ul {
-    display: flex;
-    gap: 15px; /* spacing between items */
-    flex-wrap: wrap; /* wrap if too tight */
-  }
-
-  .nav_bar .links ul li a {
-    font-size: 0.9rem; /* smaller font for better fit */
-  }
-
-  /* Footer responsive */
-  footer {
-    flex-direction: column;
-    text-align: center;
-    gap: 25px;
-    padding: 20px 10px;
-  }
-
-  footer .col1,
-  footer .col2,
-  footer .col3 {
-    width: 100%;
-  }
-
   /* Product grid responsive */
   .products_section {
     grid-template-columns: 1fr; /* one per row */
@@ -65,16 +28,7 @@
   }
 
   /* Search bar full width on mobile */
-  .searchbar {
-    width: 100%;
-    margin: 10px 0;
-  }
 
-  .searchbar input {
-    width: 90%;
-    padding: 10px;
-    font-size: 1rem;
-  }
   .main_fav h2 {
     margin-top: 5.5rem;
   }

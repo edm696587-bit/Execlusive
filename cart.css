@@ -115,3 +115,38 @@
 }
 
 /* ------------------------------------------------- */
+
+.table-wrapper {
+  width: 100%;
+  overflow-x: auto;
+}
+
+@media (max-width: 768px) {
+  .table {
+    min-width: 600px; /* enough space to fit all columns without squishing */
+  }
+
+  .table th,
+  .table td {
+    font-size: 0.85rem;
+    padding: 10px;
+  }
+
+  .table td input {
+    width: 50px;
+  }
+
+  .cart-product img {
+    width: 40px;
+    height: 40px;
+  }
+
+  .total_cost {
+    font-size: 1rem;
+  }
+
+  .total_cost a {
+    font-size: 0.9rem;
+    padding: 10px 18px;
+  }
+}
