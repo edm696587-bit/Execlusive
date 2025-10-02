@@ -1,3 +1,10 @@
+  input::-webkit-outer-spin-button,
+  input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+  }
+
+
 .cart_title {
   color: var(--secondary-text);
   width: 14rem;
@@ -54,10 +61,14 @@
 
 .table td input {
   width: 60px;
-  /* height: 50px; */
   padding: 5px;
+  margin: .4rem;
   text-align: center;
 }
+.table td i{
+  background-color:var(--secondary-color);
+  border-radius: 50%;
+} 
 
 .total_cost {
   text-align: center;
@@ -123,10 +134,10 @@
 
 @media (max-width: 768px) {
   .table {
-    min-width: 600px; /* enough space to fit all columns without squishing */
+    min-width: 600px; 
   }
 
-  .table th,
+   .table th,
   .table td {
     font-size: 0.85rem;
     padding: 10px;
@@ -134,6 +145,7 @@
 
   .table td input {
     width: 50px;
+
   }
 
   .cart-product img {
@@ -148,5 +160,5 @@
   .total_cost a {
     font-size: 0.9rem;
     padding: 10px 18px;
-  }
+  } 
 }

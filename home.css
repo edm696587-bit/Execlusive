@@ -1,6 +1,12 @@
-
-
-
+:root {
+  --primary-color: rgb(240, 240, 240);
+  --secondary-color: #db4444;
+  --secondary-text: #4d4d4d;
+  --card-color: white;
+}
+* {
+  box-sizing: border-box;
+}
 
 body {
   margin: 0;
@@ -10,6 +16,67 @@ body {
   color: var(--secondary-text);
 }
 
+
+
+/* . --------navbar----------- */
+.nav_bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: white;
+  height: 85px;
+  padding: 0 30px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+  position: fixed;
+  top: 0;
+  width: 100%;
+  /* margin-bottom: 80px; */
+
+  z-index: 1000;
+}
+
+.title p {
+  font-size: 1.2rem;
+  font-weight: bold;
+  color: var(--secondary-color);
+}
+
+.searchbar input {
+  width: 300px;
+  height: 30px;
+  border-radius: 8px;
+  border: 2px solid var(--secondary-color);
+
+  padding: 0 10px;
+  background-color: var(--primary-color);
+  color: var(--secondary-text);
+}
+
+.links ul {
+  list-style: none;
+  display: flex;
+  gap: 15px;
+  margin-right: 1.5rem;
+  padding: 0;
+}
+.links a {
+  text-decoration: none;
+  color: var(--secondary-text);
+  font-size: 0.9rem;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+
+.links i {
+  color: var(--secondary-color);
+  font-size: 1rem;
+}
+
+.links.show {
+  display: block;
+}
 /* ------------------------------------------------------------------ */
 /* MAIN CONTENT */
 .main-content {
@@ -18,7 +85,6 @@ body {
   text-align: center;
 }
 
-/* FLASH SALES */
 .flash-sales {
   margin: 7rem 0 1.5rem 0;
   font-size: 2rem;
@@ -26,7 +92,6 @@ body {
   color: var(--secondary-text);
 }
 
-/* SLIDER */
 .slider {
   width: 100%;
   max-width: 900px;
@@ -50,7 +115,7 @@ body {
   display: block;
 }
 
-/* BUTTON */
+
 .shop-btn {
   margin-top: 30px;
   background-color: var(--secondary-color);
@@ -67,6 +132,7 @@ body {
 .shop-btn:hover {
   transform: scale(1.05);
 }
+
 
 /* CATEGORIES & LAYOUT (kept as your original) */
 .main_products {
@@ -114,18 +180,17 @@ body {
 .category_img img:hover {
   transform: scale(1.1);
 }
-/* category action */
 .cat_card.active {
   background-color: var(--secondary-color);
   border-radius: 8px;
   color: white;
-  transition: background 0.3s ease;
+  /* transition: background 0.3s ease; */
+  overflow: hidden;
 }
 .cat_card.active p {
   color: white;
 }
 
-/* PRODUCTS grid */
 .products_section {
   margin-left: 40px;
   display: flex;
@@ -278,3 +343,160 @@ hr {
 }
 
 
+/* ----------------footer-------------- */
+
+
+footer {
+  width: 100%;
+  background-color: black;
+  opacity: 0.95;
+  height: auto;
+  color: white;
+  display: flex;
+  justify-content: space-around;
+  padding-bottom: 20px;
+  align-items: center;
+}
+
+.col1 {
+  width: 350px;
+  font-size: large;
+}
+.col3 {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.col3 a {
+  text-decoration: none;
+  color: #fafafa;
+  margin: 8px 0px;
+  transition: transform 0.3s ease;
+}
+.col3 a:hover {
+  transform: translateY(-3px);
+}
+
+
+@media (max-width: 768px) {
+
+
+  .nav_bar {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 15px;
+    background: #fff; /* keep or match your theme */
+    height: auto;
+  }
+
+  .nav_bar .title {
+    font-size: 1.2rem;
+    font-weight: bold;
+    display: flex;
+    justify-content: flex-start;
+  }
+
+  .nav_bar .links {
+    display: flex;
+    justify-content: flex-end;
+    flex: 1;
+  }
+
+  .nav_bar .links ul {
+    display: flex;
+    gap: 12px;
+    flex-wrap: wrap;
+  }
+
+  .nav_bar .links ul li a {
+    font-size: 0.9rem;
+    padding: 5px;
+  }
+
+  /* Searchbar below links */
+  .searchbar {
+    width: 100%;
+    margin-top: 10px;
+    display: flex;
+    justify-content: center;
+  }
+
+  .searchbar input {
+    width: 85%;
+    padding: 8px 10px;
+    font-size: 0.95rem;
+  }
+
+ 
+
+  .flash-sales{
+    margin-top: 12rem;
+  }
+  .slider {
+    height: 188%;
+    max-width: 100%;
+  }
+
+  .slides img{
+ max-width: 100%;
+ max-height: 100%;
+  object-fit: contain;
+
+
+  }
+
+
+  .products_section {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    margin: 0 auto;
+  }
+
+  .card {
+    width: 100%;
+    max-width: 320px;
+    margin: 0 auto;
+  }
+  .category_img {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    align-items: center;
+  }
+
+  .cat_card {
+    width: 100%;
+    max-width: 280px;
+  }
+
+
+  .Advantages {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+  }
+
+  .Advantages img {
+    max-width: 200px;
+  }
+
+
+  footer {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    gap: 20px;
+    padding: 20px;
+  }
+
+  footer .col1,
+  footer .col2,
+  footer .col3 {
+    width: 100%;
+  }
+}

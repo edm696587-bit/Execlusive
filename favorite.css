@@ -9,27 +9,26 @@
   margin-top: 8rem;
 }
 
+
 /* ==> ----------------- responsive ----------------- <== */
 @media (max-width: 768px) {
-  /* Product grid responsive */
+
+
   .products_section {
-    grid-template-columns: 1fr; /* one per row */
+    grid-template-columns: 1fr; 
     gap: 15px;
   }
 
   .main_fav {
-    width: 95%;
-    margin: 20px auto 50px;
+    width: 90%;
+    margin: 20px .1rem 50px;
   }
 
   .main_fav h2 {
-    margin-top: 4rem;
+    margin-left: 2rem;
+    margin-top: 7rem;
     font-size: 1.3rem;
   }
 
-  /* Search bar full width on mobile */
-
-  .main_fav h2 {
-    margin-top: 5.5rem;
-  }
+ 
 }

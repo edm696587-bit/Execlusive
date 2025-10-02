@@ -1,4 +1,4 @@
-  <!DOCTYPE html>
+<!DOCTYPE html>
   <html lang="en">
     <head>
       <meta charset="UTF-8" />
@@ -10,16 +10,10 @@
         rel="stylesheet"
         href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css"
       />
-      <style>
-        input::-webkit-outer-spin-button,
-  input::-webkit-inner-spin-button {
-    -webkit-appearance: none;
-    margin: 0;
-  }
 
-      </style>
     </head>
     <body>
+        <!--      heaeder       -->
       <header>
         <nav class="nav_bar">
           <div class="title">
@@ -46,14 +40,15 @@
           </div>
         </nav>
       </header>
-
-      <main class="checkout-container">
+        <!--     main section      -->
+      <main class="checkout-main">
         <h2>Check out your order</h2>
 
-        <!-- Order Summary -->
+        <!--         Order Summary         -->
         <div class="order-summary">
           <ul id="order-list">
-            <!-- JS will inject products here -->
+
+
           </ul>
 
           <div class="summary-details">
@@ -74,12 +69,12 @@
           <div class="coupon">
             <input type="text" id="coupon-code" placeholder="Coupon Code" />
 
-            <button id="apply-coupon">Apply Coupon</button>
+            <button  id="apply-coupon">Apply Coupon</button>
           </div>
 
           <div class="coupon">
             
-          <!-- Place Order -->
+          <!--      Place Order      -->
         </div>
 
         <div class="client_info">
@@ -103,7 +98,7 @@
       <button id="place-order">Place Order</button>
   </div>
       </main>
-
+        <!--      footer          -->
       <footer>
         <div class="col1" id="demo">
           <h3><b>About Exclusive</b></h3>
@@ -134,142 +129,5 @@
       <script src="checkout.js"></script>
     </body>
 
-    <script>
-    function loadCheckout() {
-      const cart = JSON.parse(localStorage.getItem("cart") || "[]");
-      const orderList = document.getElementById("order-list");
-      const subtotalEl = document.getElementById("subtotal");
-      const totalEl = document.getElementById("total");
-
-      orderList.innerHTML = "";
-      let subtotal = 0;
-
-      cart.forEach((item) => {
-        const li = document.createElement("li");
-        const price = Number(item.price) * (item.quantity || 1);
-        const quantity = Number(item.quantity || 1);
-        li.innerHTML = `
-          <span>${item.title.slice(0, 20)}</span>
-          <span>x${quantity}</span>
-          <span>$${price.toFixed(2)}</span>
-        `;
-        orderList.appendChild(li);
-        subtotal += price;
-      });
-
-      subtotalEl.textContent = `$${subtotal.toFixed(2)}`;
-      totalEl.textContent = `$${subtotal.toFixed(2)}`;
-    }
-
-    document.addEventListener("DOMContentLoaded", loadCheckout);
-
-    // Place order
-    document.getElementById("place-order").addEventListener("click", () => {
-      const name = document.getElementById("name").value.trim();
-      const address = document.getElementById("address").value.trim();
-      const phone = document.getElementById("phone").value.trim();
-      const cart = JSON.parse(localStorage.getItem("cart") || "[]");
-
-      // Validate cart
-      if (cart.length === 0) {
-        alert("❌ Your cart is empty!");
-        return;
-      }
-
-      // Validate name (must be 2+ words)
-      if (name.split(" ").length < 2) {
-        alert("❌ Please enter your full name (at least 2 words).");
-        return;
-      }
-
-      // Validate address (must be 2+ words)
-      if (address.split(" ").length < 2) {
-        alert("❌ Please enter a valid address (at least 2 words).");
-        return;
-      }
-
-      // Validate phone (must be 11 digits & not all same)
-      if (!/^\d{11}$/.test(phone)) {
-        alert("❌ Phone number must contain exactly 11 digits.");
-        return;
-      }
-      if (/^(\d)\1{10}$/.test(phone)) {
-        alert("❌ Phone number cannot be all the same digit.");
-        return;
-      }
-
-      // ✅ Success
-      alert(`✅ Order placed successfully!
-  Name: ${name}
-  Address: ${address}
-  Phone: ${phone}`);
-
-  // couponResult.classList.remove("coupon-result"); //dfghjkhgfdfghjklhffghjkhfdfgh
-      // Clear cart & inputs
-      localStorage.removeItem("cart");
-      document.getElementById("name").value = "";
-      document.getElementById("address").value = "";
-      document.getElementById("phone").value = "";
-
-
-      loadCheckout();
-    });
-
-    // -----------------------valid coupons------------------------
-    const valid_coupons = {
-      AAAA: 100,
-      BBBB: 200,
-      CCCC: 50,
-      DDDD: 20,
-    };
-
-    let couponUsed = false;
-    let appliedDiscount = 0;
-
-    const couponInput = document.getElementById("coupon-code");
-    const applyBtn = document.getElementById("apply-coupon");
-    const totalEl = document.getElementById("total");
-
-    applyBtn.addEventListener("click", () => {
-      if (couponUsed) {
-        alert("*** Coupon already used! ***");
-        return;
-      }
-
-      const coupon = couponInput.value.toUpperCase();
-      let currentTotal = parseFloat(totalEl.textContent.replace("$", "")) || 0;
-
-      if (valid_coupons[coupon] && currentTotal > 0) {
-        // Show coupon result once
-        let couponResult = document.getElementById("coupon-result");
-        if (!couponResult) {
-          couponResult = document.createElement("p");
-          couponResult.id = "coupon-result";
-          couponResult.classList.add("coupon-result");
-          document.querySelector(".coupon").appendChild(couponResult);
-        }
-
-        appliedDiscount = valid_coupons[coupon];
-        couponUsed = true;
-
-        let newTotal = Math.max(0, currentTotal - appliedDiscount);
-
-        totalEl.textContent = `$${newTotal.toFixed(2)}`;
-        couponInput.value = "";
-
-        couponResult.textContent = `Cost after coupon: $${newTotal.toFixed(
-          2
-        )} (Discount: $${appliedDiscount})`;
-
-        alert(
-          `🎉 Congratulations! You got $${appliedDiscount} discount with code "${coupon}"`
-        );
-      } else if (currentTotal === 0) {
-        alert("❌ Your cart is empty!");
-      } else {
-        alert("❌ Invalid coupon code.");
-      }
-    });
-  </script>
-
+<script src="check-out.js"></script>
   </html>

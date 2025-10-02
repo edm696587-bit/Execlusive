@@ -1,6 +1,5 @@
-// ================================
-// SLIDER (Hero images with interval)
-// ================================
+// --------------slider--------------------
+
 (function slider() {
   const slideImages = [
     "assets/Frame_560.png",
@@ -18,42 +17,10 @@
   }
 })();
 
-// ================================
-// NAVBAR TOGGLE (mobile menu)
-// ================================
-(function navbarToggle() {
-  const menuToggle = document.querySelector(".menu-toggle");
-  const linksEl = document.querySelector(".links");
-  const nav = document.querySelector(".nav_bar");
-  if (!menuToggle || !linksEl || !nav) return;
 
-  menuToggle.addEventListener("click", () => {
-    linksEl.classList.toggle("show");
-    const icon = menuToggle.querySelector("i");
-    if (icon) {
-      icon.classList.toggle("fa-bars");
-      icon.classList.toggle("fa-xmark");
-    }
-  });
-
-  document.addEventListener("click", (e) => {
-    if (!linksEl.classList.contains("show")) return;
-    if (!nav.contains(e.target)) {
-      linksEl.classList.remove("show");
-      const icon = menuToggle.querySelector("i");
-      if (icon) {
-        icon.classList.remove("fa-xmark");
-        icon.classList.add("fa-bars");
-      }
-    }
-  });
-})();
-
-// ================================
-// UTILITIES
-// ================================
+// ------------rate handle ----------------
 function renderStars(rate) {
-  const r = Math.round(rate || 0);
+  const r = Math.round(rate);
   return Array.from({ length: 5 }, (_, i) =>
     i < r
       ? '<i class="fa-solid fa-star"></i>'

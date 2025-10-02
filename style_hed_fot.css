@@ -16,7 +16,8 @@ body {
   background-color: var(--primary-color);
   color: var(--secondary-text);
 }
-/* header style */
+
+
 .nav_bar {
   display: flex;
   align-items: center;
@@ -66,13 +67,12 @@ body {
   gap: 6px;
 }
 
-.links {
-  /* transition: max-height 0.3s ease-in-out; */
-}
+
 .links i {
   color: var(--secondary-color);
   font-size: 1rem;
 }
+
 .links.show {
   display: block;
 }
@@ -130,47 +130,35 @@ footer {
 }
 
 @media (max-width: 768px) {
-  /* Navbar responsive */
   .nav_bar {
     display: flex;
     /* justify-content: space-between;*/ /*title left, links right */
     align-items: center;
-    /* flex-wrap: wrap; */
     justify-content: center;
     padding: 10px 15px;
+    gap:10%;   
   }
 
   .nav_bar .title {
-    font-size: 1.2rem; /* scale down on mobile */
-    /* flex: 1; */
+    font-size: 1.2rem; 
     padding-right: 0.5rem;
   }
 
   .nav_bar .links ul {
     display: flex;
-    gap: 5px;
+    gap: .3rem;
     margin-right: 1.5rem;
 
-    /* flex-wrap: wrap; */
-    /* wrap if too tight */
   }
 
   .nav_bar .links ul li a {
-    font-size: 0.8rem; /* smaller font for better fit */
+    font-size: 0.8rem;
+    font-weight: bold;
   }
 
-  .searchbar {
-    width: 30%;
-    margin: 10px 0;
-  }
+ 
 
-  .searchbar input {
-    width: 90%;
-    padding: 10px;
-    font-size: 1rem;
-  }
-
-  /* Footer responsive */
+ 
   footer {
     flex-direction: column;
     text-align: center;
@@ -181,6 +169,6 @@ footer {
   footer .col1,
   footer .col2,
   footer .col3 {
-    width: 100%;
+    width: 90%;
   }
 }
