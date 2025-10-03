@@ -77,11 +77,11 @@ function createCard(product) {
   const existing = cart.find((p) => p.id === product.id);
 
   if (existing) {
-    // REMOVE if already in cart
+
+//  ==>  remove and add to the cart     <==
     cart = cart.filter((p) => p.id !== product.id);
     cartIcon.classList.remove("active");
   } else {
-    // ADD if not in cart
     cart.push({ ...product, quantity: 1 });
     cartIcon.classList.add("active");
   }
@@ -92,9 +92,7 @@ return card;
 }
 
 
-// ================================
-// PRODUCTS & CATEGORIES
-// ================================
+//        ==> filter by catigory <==
 const productsContainer = document.getElementById("products_section");
 const displayedIds = new Set();
 
@@ -105,8 +103,7 @@ function addProducts(list) {
     displayedIds.add(p.id);
   });
 }
-
-// Category filter
+//  ==>              filtering          <==
 (function categoryFilter() {
   const catCards = document.querySelectorAll(".cat_card");
   if (!catCards.length) return;
@@ -127,12 +124,11 @@ function addProducts(list) {
   });
 })();
 
-// Initial fetch
 fetch("https://fakestoreapi.com/products?limit=8")
   .then((res) => res.json())
   .then(addProducts);
 
-// View all
+//==>        View all        <==
 const viewAllBtn = document.getElementById("view-all");
 if (viewAllBtn) {
   const catCards = document.querySelectorAll(".cat_card"); // get active filter to remove
@@ -156,7 +152,7 @@ if (shopBtn) {
   });
 }
 
-// Search filter
+//==>             Search filter       <==
 (function searchFilter() {
   const searchInput = document.querySelector(".searchbar input");
   if (!searchInput) return;

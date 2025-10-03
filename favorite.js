@@ -1,6 +1,4 @@
-// ================================
-// FAVORITES PAGE SCRIPT
-// ================================
+
 document.addEventListener("DOMContentLoaded", () => {
   const container = document.getElementById("favorites_section");
   let favorites = JSON.parse(localStorage.getItem("favorites") || "[]");
@@ -13,7 +11,7 @@ document.addEventListener("DOMContentLoaded", () => {
     return;
   }
 
-  // Render stars
+  //  ==>        Render stars      <==       
   function renderStars(rate) {
     const r = Math.round(rate || 0);
     return Array.from({ length: 5 }, (_, i) =>
@@ -23,13 +21,14 @@ document.addEventListener("DOMContentLoaded", () => {
     ).join("");
   }
 
-  // Create product card
+  // ==>        Create product card       <==      
   function createProductCard(product) {
     const card = document.createElement("div");
     card.className = "card";
     card.dataset.id = product.id;
 
-    // Load current state
+
+    // ==>     reloading     <==   
     let cart = JSON.parse(localStorage.getItem("cart") || "[]");
     const isInCart = cart.some((c) => c.id === product.id);
 
@@ -53,27 +52,25 @@ document.addEventListener("DOMContentLoaded", () => {
       </div>
     `;
 
-    // Favorite toggle
+    //  ==>      Favorite toggle       <==
     const favIcon = card.querySelector(".fav-icon");
     favIcon.addEventListener("click", () => {
       let favs = JSON.parse(localStorage.getItem("favorites") || "[]");
       favs = favs.filter((f) => f.id !== product.id);
       localStorage.setItem("favorites", JSON.stringify(favs));
-      card.remove(); // remove from UI
+      card.remove(); 
     });
 
-    // Cart toggle (ADD if not in cart, REMOVE if in cart)
+//         ==>       Cart toggle       <==
     const cartIcon = card.querySelector(".cart-icon");
     cartIcon.addEventListener("click", () => {
       let cart = JSON.parse(localStorage.getItem("cart") || "[]");
       const existing = cart.find((c) => c.id === product.id);
 
       if (existing) {
-        // REMOVE product if already in cart
         cart = cart.filter((c) => c.id !== product.id);
         cartIcon.classList.remove("active");
       } else {
-        // ADD product with quantity 1
         cart.push({ ...product, quantity: 1 });
         cartIcon.classList.add("active");
       }
@@ -84,19 +81,9 @@ document.addEventListener("DOMContentLoaded", () => {
     return card;
   }
 
-  // Render all favorites
   favorites.forEach((product) => {
     container.appendChild(createProductCard(product));
   });
 });
 
-// ================================
-// NAVBAR HAMBURGER TOGGLE
-// ================================
-const menuToggle = document.querySelector(".menu-toggle");
-const navLinks = document.querySelector(".nav_bar .links");
-
-menuToggle.addEventListener("click", () => {
-  navLinks.classList.toggle("show");
-});
 

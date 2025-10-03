@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Exclusive</title>
 
-    <!-- Font Awesome (icons) -->
+
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css"
@@ -14,11 +14,11 @@
       referrerpolicy="no-referrer"
     />
 
-    <!-- Your CSS -->
+
     <link rel="stylesheet" href="home.css" />
   </head>
   <body>
-    <!-- NAVBAR -->
+
     <header>
       <nav class="nav_bar">
         <div class="title">
@@ -52,25 +52,23 @@
         </div>
       </nav>
     </header>
-
-    <!-- MAIN LANDING PAGE -->
+<!-- ---------main section------------ -->
     <div class="main-content">
       <p class="flash-sales" id="123">Flash Sales</p>
-      <!-- SLIDER -->
+      <!--                 slider                -->
       <div class="slider">
         <div class="slides">
-          <!-- keep the img id as you used before -->
+
           <img id="slides" src="assets/Frame_560.png" alt="Product slide" />
         </div>
       </div>
-
-      <!-- BUTTON -->
+<!--            Start Shopping                     -->
       <button class="shop-btn" id="shopping">Start Shopping</button>
     </div>
 
     <hr style="width: 90%" />
 
-    <!-- CATEGORIES -->
+    <!--         Categories          -->
     <div class="main_products">
       <div class="cat">
         <img src="assets/application.png" alt="" id="roller-img" />
@@ -106,7 +104,6 @@
       <div class="products_section" id="products_section"></div>
     </div>
 
-    <!-- PRODUCTS SECTION (JS will inject cards here) -->
 
     <div class="veiw_all">
       <button id="view-all">Veiw All products</button>
@@ -145,7 +142,12 @@
         <a href="#demo">FAQ</a>
       </div>
     </footer>
-    <!-- Scripts -->
     <script src="home.js"></script>
+    <!-- <script>
+      function toggleTheme() {
+        const dark = document.getElementById('shopping')
+        dark.toggleAttribute("data-theme", "dark");
+}
+    </script> -->
   </body>
 </html>

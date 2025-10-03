@@ -18,7 +18,7 @@ body {
 
 
 
-/* . --------navbar----------- */
+/* . -----===========---navbar---------========-- */
 .nav_bar {
   display: flex;
   align-items: center;
@@ -77,8 +77,8 @@ body {
 .links.show {
   display: block;
 }
-/* ------------------------------------------------------------------ */
-/* MAIN CONTENT */
+/* ----------------MAIN CONTENt--------------------------- */
+
 .main-content {
   width: 90%;
   margin: 30px auto 70px;
@@ -133,8 +133,7 @@ body {
   transform: scale(1.05);
 }
 
-
-/* CATEGORIES & LAYOUT (kept as your original) */
+/*--------------main prouducts-------------------*/
 .main_products {
   width: 90%;
   margin: 30px auto 30px;
@@ -204,10 +203,10 @@ body {
 /*----------------------------- CARD styles ------------------------ */
 .card {
   background-color: var(--card-color);
-  border: 0.2rem solid var(--secondary-color); /* fixed var usage */
+  border: 0.2rem solid var(--secondary-color); 
   border-radius: 0.8rem;
   margin: 20px 10px;
-  width: 240px; /* fixed card width for consistency */
+  width: 240px;
   display: flex;
   flex-direction: column;
   text-align: left;
@@ -215,10 +214,9 @@ body {
   transition: transform 0.3s ease;
   position: relative;
   overflow: hidden;
-  /* min-height: 360px; ensure same height */
 }
 
-/* card image area */
+/*-------------------card image-----------------*/
 .card_img {
   width: 90%;
   height: 190px;
@@ -237,13 +235,14 @@ body {
   transition: transform 0.4s ease;
 }
 
-/* move icons to top-right (kept as your style) */
+
+
 .card_icons {
   position: absolute;
   top: 8px;
   right: 8px;
   display: flex;
-  flex-direction: column; /* fixed 'col' -> 'column' */
+  flex-direction: column; 
   gap: 10px;
   font-size: 1.2rem;
   background: transparent;
@@ -260,7 +259,6 @@ body {
   transition: color 0.3s ease, background 0.3s ease;
 }
 
-/* card info (text under image) */
 .card_info {
   margin-top: 8px;
   padding: 12px;
@@ -268,10 +266,11 @@ body {
 .card_info h4 {
   margin: 0 0 1.5rem;
   font-size: 0.8rem;
-  /* font-weight: bold; */
   color: var(--secondary-text);
-  display: -webkit-box; /* allow multiple lines */
-  -webkit-line-clamp: 3; /* max 2 lines */
+  /* allow multiple lines */
+/*   max 2 lines          */
+  display: -webkit-box; 
+  -webkit-line-clamp: 3; 
   -webkit-box-orient: vertical;
 
   overflow: hidden;
@@ -289,7 +288,7 @@ body {
   color: gold;
 }
 
-/* active icon color */
+/*----------------active icon color------------------*/
 .card_icons i.active {
   color: var(--secondary-color);
   
@@ -300,7 +299,7 @@ body {
   transform: translateY(-10px);
 }
 
-/* view all button */
+/* _---------------- view all button  -------------- */
 .veiw_all {
   display: flex;
   justify-content: center;
@@ -388,7 +387,7 @@ footer {
     justify-content: space-between;
     align-items: center;
     padding: 10px 15px;
-    background: #fff; /* keep or match your theme */
+    background: #fff; 
     height: auto;
   }
 
@@ -406,17 +405,15 @@ footer {
   }
 
   .nav_bar .links ul {
-    display: flex;
-    gap: 12px;
-    flex-wrap: wrap;
+    gap: 1px;
   }
 
   .nav_bar .links ul li a {
     font-size: 0.9rem;
-    padding: 5px;
+    padding: 1px;
   }
 
-  /* Searchbar below links */
+  /* -------------------Searchbar --------------*/
   .searchbar {
     width: 100%;
     margin-top: 10px;
@@ -458,7 +455,7 @@ footer {
 
   .card {
     width: 100%;
-    max-width: 320px;
+    max-width: 300px;
     margin: 0 auto;
   }
   .category_img {
@@ -500,3 +497,14 @@ footer {
     width: 100%;
   }
 }
+
+
+
+/* @media (prefers-color-scheme: dark) {
+  :root {
+    --primary-color: #1a1a1a;
+    --secondary-color: #ff5555;
+    --secondary-text: #e0e0e0;
+    --card-color: #2a2a2a;
+  } 
+}*/

@@ -33,31 +33,33 @@
       const phone = document.getElementById("phone").value.trim();
       const cart = JSON.parse(localStorage.getItem("cart") || "[]");
 
-      // Validate cart
+      //               Validate cart
       if (cart.length === 0) {
         alert("Your cart is empty!");
         return;
       }
 
-      // Validate name (must be 2+ words)
+      //         Validation for the user info 
       if (name.split(" ").length < 2) {
-        alert("Please enter your full name (at least 2 words).\n");
+        alert("Please enter your full name .\n");
         return;
       }
 
-      // Validate address (must be 2+ words)
       if (address.split(" ").length < 2) {
-        alert("Please enter a valid address (at least 2 words).\n");
+        alert("Please enter a valid detailed address .\n");
         return;
       }
 
-      // Validate phone (must be 11 digits & not all same)
       if (!/^\d{11}$/.test(phone)) {
         alert("Phone number must contain exactly 11 digits.");
         return;
       }
       if (/^(\d)\1{10}$/.test(phone)) {
         alert("Phone number cannot be all the same digit.");
+        return;
+      }
+      if (!/^(010|011|012|015)/.test(phone)) {
+        alert("Phone number must start with 010, 011, 012, or 015.");
         return;
       }
 

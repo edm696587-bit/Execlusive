@@ -36,7 +36,7 @@
           <i class="fa-solid fa-xmark"></i></button></td>
         `;
 
-          // quantity change
+          //   change quantity 
           const qtyInput = tr.querySelector("input");
         
           qtyInput.addEventListener("input", (e) => {
