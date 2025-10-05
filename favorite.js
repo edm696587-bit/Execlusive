@@ -1,4 +1,3 @@
-
 document.addEventListener("DOMContentLoaded", () => {
   const container = document.getElementById("favorites_section");
   let favorites = JSON.parse(localStorage.getItem("favorites") || "[]");
@@ -6,12 +5,12 @@ document.addEventListener("DOMContentLoaded", () => {
   container.innerHTML = "";
 
   if (favorites.length === 0) {
-    container.innerHTML =
-      "<p style='text-align:center;'>No favorites yet.</p>";
+    container.innerHTML = `
+      <p> No favorites yet!  <i class="fa-solid fa-heart-crack"></i></p>`;
     return;
   }
 
-  //  ==>        Render stars      <==       
+  //  ==>        Render stars      <==
   function renderStars(rate) {
     const r = Math.round(rate || 0);
     return Array.from({ length: 5 }, (_, i) =>
@@ -21,14 +20,13 @@ document.addEventListener("DOMContentLoaded", () => {
     ).join("");
   }
 
-  // ==>        Create product card       <==      
+  // ==>        Create product card       <==
   function createProductCard(product) {
     const card = document.createElement("div");
     card.className = "card";
     card.dataset.id = product.id;
 
-
-    // ==>     reloading     <==   
+    // ==>     reloading     <==
     let cart = JSON.parse(localStorage.getItem("cart") || "[]");
     const isInCart = cart.some((c) => c.id === product.id);
 
@@ -55,13 +53,22 @@ document.addEventListener("DOMContentLoaded", () => {
     //  ==>      Favorite toggle       <==
     const favIcon = card.querySelector(".fav-icon");
     favIcon.addEventListener("click", () => {
+      const container = document.getElementById("favorites_section");
       let favs = JSON.parse(localStorage.getItem("favorites") || "[]");
       favs = favs.filter((f) => f.id !== product.id);
       localStorage.setItem("favorites", JSON.stringify(favs));
-      card.remove(); 
+      card.remove();
+
+      favorites = favs;
+
+      if (favorites.length === 0) {
+        container.innerHTML = `
+      <p>Now you don't have any favorite items <i class="fa-solid fa-heart-crack"></i></p>`;
+        return;
+      }
     });
 
-//         ==>       Cart toggle       <==
+    //         ==>       Cart toggle       <==
     const cartIcon = card.querySelector(".cart-icon");
     cartIcon.addEventListener("click", () => {
       let cart = JSON.parse(localStorage.getItem("cart") || "[]");
@@ -85,5 +92,3 @@ document.addEventListener("DOMContentLoaded", () => {
     container.appendChild(createProductCard(product));
   });
 });
-
-
