@@ -13,7 +13,7 @@
         const quantity = Number(item.quantity || 1);
         li.innerHTML = `
           <span>${item.title.slice(0, 20)}</span>
-          <span>x${quantity}</span>
+          <span>x ${quantity}</span>
           <span>$${price.toFixed(2)}</span>
         `;
         orderList.appendChild(li);
@@ -45,7 +45,7 @@
         return;
       }
 
-      if (address.split(" ").length < 2) {
+      if (address.split(" ").length <= 2) {
         alert("Please enter a valid detailed address .\n");
         return;
       }
@@ -82,8 +82,8 @@
 
     // Valid coupons logic
     const valid_coupons = {
-      AAAA: 100,
-      BBBB: 200,
+      AAAA: 200,
+      BBBB: 100,
       CCCC: 50,
       DDDD: 20,
     };
