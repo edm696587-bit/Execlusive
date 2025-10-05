@@ -51,7 +51,6 @@
     
     loadCart();
   });
-  tbody.appendChild(tr); 
 
 
           
@@ -84,6 +83,7 @@
             localStorage.setItem("cart", JSON.stringify(cart));
             loadCart();
           });
+            tbody.appendChild(tr); 
 
         });
 

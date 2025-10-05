@@ -12,7 +12,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
   //  ==>        Render stars      <==
   function renderStars(rate) {
-    const r = Math.round(rate || 0);
+    const r = Math.round(rate);
     return Array.from({ length: 5 }, (_, i) =>
       i < r
         ? '<i class="fa-solid fa-star"></i>'
@@ -59,9 +59,8 @@ document.addEventListener("DOMContentLoaded", () => {
       localStorage.setItem("favorites", JSON.stringify(favs));
       card.remove();
 
-      favorites = favs;
 
-      if (favorites.length === 0) {
+      if (favs.length === 0) {
         container.innerHTML = `
       <p>Now you don't have any favorite items <i class="fa-solid fa-heart-crack"></i></p>`;
         return;
