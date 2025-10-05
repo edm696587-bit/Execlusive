@@ -8,20 +8,27 @@
   text-align: center;
   margin-top: 8rem;
 }
-
+.products_section{
+  margin-left:2.5rem;
+}
+.products_section p {
+  margin-left: 6rem;
+  text-align: center;
+  justify-content: center;
+  color: var(--secondary-color);
+  font-size: x-large;
+}
 
 /* ==> ----------------- responsive ----------------- <== */
 @media (max-width: 768px) {
-
-
   .products_section {
-    grid-template-columns: 1fr; 
+    grid-template-columns: 1fr;
     gap: 15px;
   }
 
   .main_fav {
     width: 90%;
-    margin: 20px .1rem 50px;
+    margin: 20px 0.1rem 50px;
   }
 
   .main_fav h2 {
@@ -29,6 +36,8 @@
     margin-top: 7rem;
     font-size: 1.3rem;
   }
-
- 
+  .products_section p {
+    margin-left: 2rem;
+    text-align: center;
+  }
 }
